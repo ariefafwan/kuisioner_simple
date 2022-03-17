@@ -1,7 +1,11 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\Dosen\DosenController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Guest\MahasiswaController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 
@@ -23,6 +27,18 @@ Route::get('/', function () {
 Route::group(['middleware' => 'auth'], function () {
 
     Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+    //Route Admin
+    Route::resource('admin', AdminController::class);
+
+
+    //Route Dosen
+    Route::resource('dosen', DosenController::class);
+
+    //Route Mahasiswa
+    
+    Route::resource('mahasiswa', MahasiswaController::class);
+    
 
     
 });

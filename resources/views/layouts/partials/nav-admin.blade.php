@@ -1,9 +1,9 @@
-<nav class="navbar navbar-dark bg-warning p-2">
+<nav class="navbar navbar-dark bg-dark p-2">
     <div class="d-flex col-12 col-md-3 col-lg-2 mb-2 mb-lg-0 flex-wrap flex-md-nowrap justify-content-between">
         <a class="navbar-brand text-center" href="{{ route('home') }}">
-            <img src="{{ asset('img/keu.png') }}" alt="Kongres Ekonomi Umat II" class="brand-img"
+            <img src="{{ asset('img/unimal.jpg') }}" alt="Kuisioner" class="brand-img"
                 style="max-width: 15%">
-            KEU II
+            Kuisioner
         </a>
         <button class="navbar-toggler d-md-none collapsed mb-3" type="button" data-toggle="collapse"
             data-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
