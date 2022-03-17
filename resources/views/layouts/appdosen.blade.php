@@ -62,23 +62,23 @@
 
 <body>
     <!-- Content -->
-    @include('layouts.partials.nav-admin')
+    @include('layouts.partials.nav-dosen')
 
     <div class="container-fluid">
         <div class="row">
             <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse"
                 style="background-color: #ffffff;">
-                @include('layouts.partials.side-admin')
+                @include('layouts.partials.side-dosen')
             </nav>
             <main class="col-md-9 ml-sm-auto col-lg-10 px-md-4 py-4">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('mahasiswa.index') }}">Home</a></li>
                         <li class="breadcrumb-item active" aria-current="page"></li>
                     </ol>
                     <h1 class="h2">{{ $page }}</h1>
                 </nav>
-                @yield('body')
+                @yield('dosen')
             </main>
         </div>
     </div>

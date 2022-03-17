@@ -18,11 +18,11 @@ class HomeController extends Controller
     {
         $role = Auth::user()->role_id;
         if ($role == "1") {
-            return view('layouts.admin.dashboard');
+            return redirect()->route('admin.index');
         } else if ($role == "2") {
-            return view('layouts.dosen.dashboard');
+            return redirect()->route('dosen.index');
         } else if ($role == "3") {
-            return view('layouts.mahasiswa.dashboard');
+            return redirect()->route('mahasiswa.index');
         } else {
             return redirect()->to('logout');
         }
