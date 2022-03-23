@@ -26,9 +26,9 @@
             <!-- NIM -->
             
             <div class="mt-4">
-                <x-label for="name" :value="__('Nim')" />
+                <x-label for="name" :value="__('NIP')" />
 
-                <x-input id="nim" class="block mt-1 w-full" type="number" name="nim" :value="old('nim')" required autofocus />
+                <x-input id="nip" class="block mt-1 w-full" type="number" name="nip" :value="old('nip')" required autofocus />
             </div>
 
             <!-- Prodi -->

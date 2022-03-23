@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Guest;
 
 use App\Http\Controllers\Controller;
-
+use App\Models\Dosen;
+use App\Models\Jawaban;
+use App\Models\Pertanyaan;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,8 +21,11 @@ class MahasiswaController extends Controller
     public function index()
     {
             $user = Auth::user();
-            $page = "Dasboard Mahasiswa";
-            return view('layouts.mahasiswa.dashboard', compact('user', 'page'));
+            $dosen = Dosen::all();
+            $pertanyaan = Pertanyaan::all();
+            $jawaban = Jawaban::all();
+            $page = "Kuisioner Mahasiswa";
+            return view('layouts.mahasiswa.dashboard', compact('user', 'page', 'dosen', 'pertanyaan', 'jawaban'));
     }
 
     /**

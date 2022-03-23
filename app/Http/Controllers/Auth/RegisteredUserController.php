@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Prodi;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -20,7 +21,14 @@ class RegisteredUserController extends Controller
      */
     public function create()
     {
-        return view('auth.register');
+        $prodi = Prodi::all();
+        return view('auth.register', compact('prodi'));
+    }
+
+    public function index()
+    {
+        $prodi = Prodi::all();
+        return view('auth.registerdosen', compact('prodi'));
     }
 
     /**
@@ -42,6 +50,9 @@ class RegisteredUserController extends Controller
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
+            'nim' => $request->nim,
+            'nip' => $request->nip,
+            'role' => $request->role,
             'role_id' => $request->role_id,
             'prodi_id' => $request->prodi_id,
             'password' => Hash::make($request->password),
