@@ -23,6 +23,8 @@ class HomeController extends Controller
             return redirect()->route('dosen.index');
         } else if ($role == "3") {
             return redirect()->route('mahasiswa.index');
+        } else if ($role == "4") {
+            return redirect()->route('user');
         } else {
             return redirect()->to('logout');
         }

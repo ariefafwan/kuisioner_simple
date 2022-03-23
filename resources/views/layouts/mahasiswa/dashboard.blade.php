@@ -4,74 +4,42 @@
 
     <hr>
 
-    <div class="row my-4">
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                Total Produk</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800"></div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-3 col-md-6 mb-4">
-            {{-- <a href="{{ route('boothsaya.index') }}"> --}}
-                <div class="card border-left shadow h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                    See My Booth</div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-plus-square fa-2x text-gray-300"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col-xl-3 col-md-6 mb-4">
-            {{-- <a href="{{ route('alamat-toko.index') }}"> --}}
-                <div class="card border-left shadow h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
-                                    Tambah Alamat</div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-plus-square fa-2x text-gray-300"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
-                                Total Transaksi
-                            </div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                {{-- @currency($transaksi) --}}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div class="form-group">
+        <label for="exampleFormControlSelect1">Pilih Dosen</label>
+        <select class="form-control" id="exampleFormControlSelect1">
+          @foreach ($dosen as $data)
+            <option value="{{ $data->id }}">{{ $data->name }} - {{ $data->prodi->name }}</option>
+          @endforeach
+        </select>
+      </div>
 
+    <hr>
+    @foreach ($pertanyaan as $data)
+    <div class="form-group">
+        <label for="Pertanyaan">{{ $data->quest }}</label>
+        <div class="form-check">
+            <div class="row">
+                <div class="col">
+                    <input type="radio" name="data[{{ $data->id }}]" id="data" value="6"
+                        class="form-check-input">
+                    <label for="data[]" class="form-check-label">YES</label>
+                </div>
+                <div class="col">
+                    <input type="radio" name="data[{{ $data->id }}]" id="data" value="7"
+                        class="form-check-input">
+                    <label for="data[]" class="form-check-label">NO</label>
+                </div>
+                <div class="col">
+                    <input type="radio" name="data[{{ $data->id }}]" id="data" value="8"
+                        class="form-check-input">
+                    <label for="data[]" class="form-check-label">PARTIAL</label>
+                </div>
+            </div>
+        </div>
+            
+    
+        
+    </div>    
+    @endforeach
 
 @endsection

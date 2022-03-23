@@ -1,10 +1,13 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\AllDosenController;
+use App\Http\Controllers\Admin\MhsController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Dosen\DosenController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Guest\MahasiswaController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -28,8 +31,13 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+    //Route User
+    Route::get('user', [UserController::class, 'index'])->name('user');
+    
     //Route Admin
     Route::resource('admin', AdminController::class);
+    Route::resource('alldosen', AllDosenController::class);
+    Route::resource('mhs', MhsController::class);
 
 
     //Route Dosen

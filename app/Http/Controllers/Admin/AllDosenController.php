@@ -4,10 +4,12 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Role;
 use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class AdminController extends Controller
+
+use Illuminate\Http\Request;
+
+class AllDosenController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +18,13 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $user = Auth::user();
-        $page = "Dasboard Admin";
-        return view('layouts.admin.dashboard', compact('user', 'page'));
+        // $user = User::all()->where('role_id', 2);
+        // $page = 'All Dosen';
+        // return view('layouts.admin.alldosen', compact('user', 'page'));
+
+        $user = User::latest()->paginate(5)->where('role_id', 2);
+        return view('layouts.admin.alldosen', ['page' => 'All Dosen'], compact('user'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -28,9 +34,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        $DaftarUser = User::latest()->paginate(5)->where('role_id', '4');
-        return view('layouts.admin.users', ['page' => 'All Users'], compact('DaftarUser'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+        //
     }
 
     /**
@@ -52,8 +56,7 @@ class AdminController extends Controller
      */
     public function show($id)
     {
-        $DaftarUser = User::find($id);
-        return view('layouts.admin.detailuser', compact('DaftarUser'), ['page' => 'Detail User']);
+        //
     }
 
     /**
@@ -64,9 +67,7 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-        $role = Role::all();
-        $DaftarUser = User::find($id);
-        return view('layouts.admin.edituser', compact('DaftarUser', 'role'), ['page' => 'Edit User']);
+        //
     }
 
     /**
@@ -78,15 +79,7 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $DaftarUser = User::find($id);
-        $request->validate([
-            'role_id' => 'required',
-        ]);
-
-        $DaftarUser->update($request->all());
-
-        return redirect()->route('admin.create')
-            ->with('updatesuccess', 'User Berhasil diupdate');
+        //
     }
 
     /**
