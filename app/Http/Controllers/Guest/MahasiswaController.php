@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Guest;
 
 use App\Http\Controllers\Controller;
 use App\Models\Dosen;
+use App\Models\Hasil;
 use App\Models\Jawaban;
 use App\Models\Pertanyaan;
 use App\Models\User;
@@ -23,9 +24,8 @@ class MahasiswaController extends Controller
             $user = Auth::user();
             $dosen = Dosen::all();
             $pertanyaan = Pertanyaan::all();
-            $jawaban = Jawaban::all();
             $page = "Kuisioner Mahasiswa";
-            return view('layouts.mahasiswa.dashboard', compact('user', 'page', 'dosen', 'pertanyaan', 'jawaban'));
+            return view('layouts.mahasiswa.dashboard', compact('user', 'page', 'dosen', 'pertanyaan'));
     }
 
     /**
@@ -46,7 +46,27 @@ class MahasiswaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->data;
+
+        $total = array_sum($data);
+        $jumlah = count($data);
+
+        $n = ($total / $jumlah);
+        $nilai = floatval($n);
+
+        // $idmhs = Auth::user()->id;
+        // $idmhs = ::where('user_id', $idusr)->first('id');
+        // dd($idmhs);
+
+
+        Hasil::create([
+            'user_id' => $request->user_id,
+            // 'dosen_id' => $request->dosen_id,
+            'nilai' => $nilai,
+            'saran' => $request->saran
+        ]);
+
+        return redirect()->route('task2')->with('success', 'Data Penilaian Berhasil ditambahkan');
     }
 
     /**
