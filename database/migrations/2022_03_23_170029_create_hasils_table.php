@@ -17,10 +17,9 @@ class CreateHasilsTable extends Migration
             $table->id();
             $table->bigInteger('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
-            $table->bigInteger('pertanyaan_id')->unsigned()->nullable();
-            $table->foreign('pertanyaan_id')->references('id')->on('pertanyaans')->onDelete('cascade')->onUpdate('cascade');
-            $table->bigInteger('jawaban_id')->unsigned()->nullable();
-            $table->foreign('jawaban_id')->references('id')->on('jawabans')->onDelete('cascade')->onUpdate('cascade');
+            // $table->bigInteger('dosen_id')->unsigned()->nullable();
+            // $table->foreign('dosen_id')->references('id')->on('dosens')->onDelete('cascade')->onUpdate('cascade');
+            $table->float('nilai');
             $table->longText('saran');
             $table->timestamps();
         });

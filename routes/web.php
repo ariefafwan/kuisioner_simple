@@ -33,6 +33,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     //Route User
     Route::get('user', [UserController::class, 'index'])->name('user');
+    Route::get('task', [UserController::class, 'task2'])->name('task2');
     
     //Route Admin
     Route::resource('admin', AdminController::class);
