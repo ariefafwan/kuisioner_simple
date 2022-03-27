@@ -39,15 +39,15 @@
     <div class="d-flex flex-column">
 
     <div class="profile">
-        <div> class="divider"></div>
+        <hr>
         <h1 class="text-light"><a >Welcome</a></h1>
     </div>
 
     <nav id="navbar" class="nav-menu navbar">
         <ul>
         <li><a href="{{ route('login') }}" class="nav-link"><i class="bi bi-box-arrow-in-right"></i> <span>Login</span></a></li>
-        <li><a href="{{ route('register') }}" class="nav-link"><i class="bi bi-box-arrow-in-up"></i> <span>Register as Mahasiswa</span></a></li>
-        <li><a href="{{ route('regis') }}" class="nav-link"><i class="bi bi-box-arrow-in-up"></i> <span>Register as Dosen</span></a></li>
+        <li><a href="{{ route('register') }}" class="nav-link"><i class="bi bi-box-arrow-in-up"></i> <span>Register</span></a></li>
+        {{-- <li><a href="{{ route('regis') }}" class="nav-link"><i class="bi bi-box-arrow-in-up"></i> <span>Register as Dosen</span></a></li> --}}
         </ul>
     </nav><!-- .nav-menu -->
     </div>

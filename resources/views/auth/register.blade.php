@@ -21,9 +21,9 @@
 
             <!-- Role -->
 
-            <input type="hidden" id="role_id" class="form-control" value="4" name="role_id">
+            <input type="hidden" id="role_id" class="form-control" value="2" name="role_id">
 
-            <!-- NIM -->
+            {{-- <!-- NIM -->
             
             <div class="mt-4">
                 <x-label for="name" :value="__('Nim')" />
@@ -44,7 +44,7 @@
 
                             @endforeach
                     </select>
-            </div>
+            </div> --}}
             
             <!-- Email Address -->
             <div class="mt-4">

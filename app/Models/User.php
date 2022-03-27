@@ -20,10 +20,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
-        'nim',
-        'nip',
         'role_id',
-        'prodi_id',
         'password',
     ];
 
@@ -51,8 +48,4 @@ class User extends Authenticatable
         return $this->belongsTo(Role::class);
     }
 
-    public function prodi()
-    {
-        return $this->belongsTo(Prodi::class);
-    }
 }

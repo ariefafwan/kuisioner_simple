@@ -35,9 +35,6 @@
                      <tr>
                          <th>Nama</th>
                          <th>Email</th>
-                         <th>NIP</th>
-                         <th>NIM</th>
-                         <th>Prodi</th>
                          <th>Lihat</th>
                          <th>Edit</th>
                      </tr>
@@ -47,9 +44,6 @@
                      <tr>
                          <td>{{ $row->name }}</td>
                          <td>{{ $row->email }}</td>
-                         <td>{{ $row->nip }}</td>
-                         <td>{{ $row->nim }}</td>
-                         <td>{{ $row->prodi->name }}</td>
                          <td><a href="{{ route('admin.show', $row->id) }}">
                              <button class="btn btn-success"><i class="fas fa-eye"></i>
                                  Detail

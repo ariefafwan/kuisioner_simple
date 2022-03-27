@@ -11,9 +11,14 @@ class Hasil extends Model
 
     protected $fillable = [
         'user_id',
-        // 'dosen_id',
+        'jawaban1',
+        'jawaban2',
+        'jawaban3',
+        'jawaban4',
+        'jawaban5',
+        'task',
         'saran',
-        'nilai',
+        // 'nilai',
     ];
 
 
@@ -22,9 +27,5 @@ class Hasil extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function dosen()
-    {
-        return $this->belongsTo(Dosen::class);
-    }
 
 }
