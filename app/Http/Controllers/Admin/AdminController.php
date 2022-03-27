@@ -16,9 +16,9 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $user = Auth::user();
-        $page = "Dasboard Admin";
-        return view('layouts.admin.dashboard', compact('user', 'page'));
+        // $user = Auth::user();
+        // $page = "Dasboard Admin";
+        // return view('layouts.admin.dashboard', compact('user', 'page'));
     }
 
     /**
@@ -28,7 +28,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        $DaftarUser = User::latest()->paginate(5)->where('role_id', '4');
+        $DaftarUser = User::latest()->paginate(5)->where('role_id', '2');
         return view('layouts.admin.users', ['page' => 'All Users'], compact('DaftarUser'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }

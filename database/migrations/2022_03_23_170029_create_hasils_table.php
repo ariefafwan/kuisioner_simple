@@ -17,10 +17,12 @@ class CreateHasilsTable extends Migration
             $table->id();
             $table->bigInteger('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
-            // $table->bigInteger('dosen_id')->unsigned()->nullable();
-            // $table->foreign('dosen_id')->references('id')->on('dosens')->onDelete('cascade')->onUpdate('cascade');
-            $table->float('nilai');
-            $table->longText('saran');
+            $table->string('task');
+            $table->string('jawaban1')->nullable();
+            $table->string('jawaban2')->nullable();
+            $table->string('jawaban3')->nullable();
+            $table->string('jawaban4')->nullable();
+            // $table->longText('saran');
             $table->timestamps();
         });
     }

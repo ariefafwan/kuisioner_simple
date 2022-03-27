@@ -1,12 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Dosen;
-
+namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Models\Hasil;
 use Illuminate\Support\Facades\Auth;
 
-class DosenController extends Controller
+
+use Illuminate\Http\Request;
+
+class ResultController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +18,12 @@ class DosenController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $page = "Dasboard Dosen";
-        return view('layouts.dosen.dashboard', compact('user', 'page'));
+        $hasil1 = Hasil::all()->where('task', '1');
+        $hasil2 = Hasil::all()->where('task', '2');
+        $hasil3 = Hasil::all()->where('task', '3');
+        $hasil4 = Hasil::all()->where('task', '4');
+        $page = "Result";
+        return view('layouts.admin.result', compact('user', 'page', 'hasil1', 'hasil2', 'hasil3', 'hasil4'));
     }
 
     /**

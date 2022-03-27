@@ -11,10 +11,6 @@
       <div class="col-md-8">
         <div class="card-body">
           <h5 class="card-title">{{ $DaftarUser->name }}</h5><br>
-          <p class="card-text">NIP : {{ $DaftarUser->nip }}</p>
-          <p class="card-text">NIM : {{ $DaftarUser->nim }}</p>
-          <p class="card-text">Role : {{ $DaftarUser->role->name }}</p>
-          <p class="card-text">Prodi : {{ $DaftarUser->prodi->name }}</p>
           <p class="card-text">Email : {{ $DaftarUser->email }}</p>
         </div>
       </div>

@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Jawaban;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Permohonan;
+use App\Models\Pertanyaan;
 use App\Models\User;
 
 class HomeController extends Controller
@@ -18,13 +20,12 @@ class HomeController extends Controller
     {
         $role = Auth::user()->role_id;
         if ($role == "1") {
-            return redirect()->route('admin.index');
+            $page = 'Dashboard Admin';
+            return view('layouts.admin.dashboard', compact('page'));
         } else if ($role == "2") {
-            return redirect()->route('dosen.index');
-        } else if ($role == "3") {
-            return redirect()->route('mahasiswa.index');
-        } else if ($role == "4") {
-            return redirect()->route('user');
+            $page = 'Isilah Kuisioner Berikut';
+            $jawaban = Jawaban::all();
+            return view('layouts.guest.dashboard', compact('jawaban', 'page'));
         } else {
             return redirect()->to('logout');
         }

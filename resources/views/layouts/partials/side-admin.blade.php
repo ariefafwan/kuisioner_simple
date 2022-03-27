@@ -13,21 +13,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link "
-                href="{{ route('mhs.index') }}">
-                <i data-feather="users"></i>
-                <span class="ml-2">Mahasiswa</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link"
-                href=" {{ route('alldosen.index') }}">
-                <i data-feather="users"></i>
-                <span class="ml-2">Dosen</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link">
+            <a class="nav-link" href="{{ route('result.index') }}">
                 <i data-feather="file"></i>
                 <span class="ml-2">Result</span>
             </a>
